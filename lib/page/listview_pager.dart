@@ -64,7 +64,7 @@ class _ListViewState extends State<ListViewPage> {
                 Flexible(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[Text('標題'), Text('我的消息描述内容部分')],
+                    children: <Widget>[Text('标题'), Text('我的消息描述内容部分')],
                   ),
                   flex: 2,
                 ),

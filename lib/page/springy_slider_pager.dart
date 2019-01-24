@@ -124,8 +124,8 @@ class _SpringySliderState extends State<SpringySlider>
       sliderPercent: 0.5,
       vsync: this,
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
   }
 
   @override
@@ -240,22 +240,27 @@ class _SliderDraggerState extends State<SliderDragger> {
     startDragPercent = widget.sliderController.sliderValue;
 
     final sliderWidth = context.size.width;
-    final sliderLeftPosition =
-        (context.findRenderObject() as RenderBox).localToGlobal(const Offset(0.0, 0.0)).dx;
-    final dragHorizontalPercent = (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
+    final sliderLeftPosition = (context.findRenderObject() as RenderBox)
+        .localToGlobal(const Offset(0.0, 0.0))
+        .dx;
+    final dragHorizontalPercent =
+        (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
 
     widget.sliderController.onDragStart(dragHorizontalPercent);
   }
 
   void _onPanUpdate(DragUpdateDetails details) {
     final dragDistance = startDragY - details.globalPosition.dy;
-    final sliderHeight = context.size.height - widget.paddingTop - widget.paddingBottom;
+    final sliderHeight =
+        context.size.height - widget.paddingTop - widget.paddingBottom;
     final dragPercent = dragDistance / sliderHeight;
 
     final sliderWidth = context.size.width;
-    final sliderLeftPosition =
-        (context.findRenderObject() as RenderBox).localToGlobal(const Offset(0.0, 0.0)).dx;
-    final dragHorizontalPercent = (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
+    final sliderLeftPosition = (context.findRenderObject() as RenderBox)
+        .localToGlobal(const Offset(0.0, 0.0))
+        .dx;
+    final dragHorizontalPercent =
+        (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
 
     widget.sliderController.draggingPercents = new Offset(
       dragHorizontalPercent,
@@ -362,10 +367,10 @@ class SliderMarksPainter extends CustomPainter {
     this.paddingBottom,
     this.paddingRight,
   })  : markPaint = new Paint()
-    ..color = markColor
-    ..strokeWidth = markThickness
-    ..style = PaintingStyle.stroke
-    ..strokeCap = StrokeCap.round,
+          ..color = markColor
+          ..strokeWidth = markThickness
+          ..style = PaintingStyle.stroke
+          ..strokeCap = StrokeCap.round,
         backgroundPaint = new Paint()
           ..color = backgroundColor
           ..style = PaintingStyle.fill;
@@ -479,7 +484,8 @@ class SliderClipper extends CustomClipper<Path> {
     }
     final baseControlPointWidth = 150.0;
     final thickeningFactor = excessDrag * height * 0.05;
-    final controlPointWidth = (200.0 * thickeningFactor).abs() + baseControlPointWidth;
+    final controlPointWidth =
+        (200.0 * thickeningFactor).abs() + baseControlPointWidth;
 
     final rect = new Path();
     rect.moveTo(leftPoint.x, leftPoint.y);
@@ -527,7 +533,8 @@ class SliderClipper extends CustomClipper<Path> {
     final bottom = size.height - paddingBottom;
     final height = bottom - top;
     final basePercentFromBottom = 1.0 - sliderController.springingPercent;
-    final crestSpringPercentFromBottom = 1.0 - sliderController.crestSpringingPercent;
+    final crestSpringPercentFromBottom =
+        1.0 - sliderController.crestSpringingPercent;
 
     final baseY = top + (basePercentFromBottom * height);
     final leftX = -0.85 * size.width;
@@ -696,7 +703,8 @@ class Points extends StatelessWidget {
     final pointTextSize = 50.0 + (50.0 * percent);
 
     return Row(
-      crossAxisAlignment: isAboveSlider ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          isAboveSlider ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: <Widget>[
         FractionalTranslation(
           translation: Offset(-0.05 * percent, isAboveSlider ? 0.18 : -0.18),
@@ -864,16 +872,21 @@ class SpringySliderController extends ChangeNotifier {
     }
 
     _sliderSpringSimulation = new SpringSimulation(
-        sliderSpring,
-        _springStartPerent,
-        _springEndPercent,
-        0.0,
+      sliderSpring,
+      _springStartPerent,
+      _springEndPercent,
+      0.0,
     );
 
-    final crestSpringNormal = (_crestSpringingEndPercent - _crestSpringingStartPerent) /
-        (_crestSpringingEndPercent - _crestSpringingStartPerent).abs();
-    _crestSpringSimulation = new SpringSimulation(crestSpring,
-        _crestSpringingStartPerent, _crestSpringingEndPercent, 0.5 * crestSpringNormal,);
+    final crestSpringNormal =
+        (_crestSpringingEndPercent - _crestSpringingStartPerent) /
+            (_crestSpringingEndPercent - _crestSpringingStartPerent).abs();
+    _crestSpringSimulation = new SpringSimulation(
+      crestSpring,
+      _crestSpringingStartPerent,
+      _crestSpringingEndPercent,
+      0.5 * crestSpringNormal,
+    );
 
     _springTime = 0.0;
 
@@ -882,19 +895,25 @@ class SpringySliderController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _springTick(Duration deltaTime){
+  void _springTick(Duration deltaTime) {
     final lastFrameTime = deltaTime.inMilliseconds.toDouble() / 1000.0;
 
     _springTime += lastFrameTime;
     _springingPercent = _sliderSpringSimulation.x(_springTime);
 
     _crestSpringingPercent = _crestSpringSimulation.x(lastFrameTime);
-    _crestSpringSimulation = new SpringSimulation(crestSpring, _crestSpringingPercent,
-        _springingPercent, _crestSpringSimulation.dx(lastFrameTime),
+    _crestSpringSimulation = new SpringSimulation(
+      crestSpring,
+      _crestSpringingPercent,
+      _springingPercent,
+      _crestSpringSimulation.dx(lastFrameTime),
     );
 
-    if(_sliderSpringSimulation.isDone(_springTime) && _crestSpringSimulation.isDone(lastFrameTime)){
-      _springTicker..stop()..dispose();
+    if (_sliderSpringSimulation.isDone(_springTime) &&
+        _crestSpringSimulation.isDone(lastFrameTime)) {
+      _springTicker
+        ..stop()
+        ..dispose();
       _springTicker = null;
 
       _state = SpringySliderState.idle;

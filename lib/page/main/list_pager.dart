@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
-class NoticePager extends StatelessWidget{
+class ListPager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('提示'),
+        title: Text('列表'),
       ),
       body: Center(
-        child: Text('notice'),
+        child: Text('list'),
       ),
     );
   }
-
 }
-

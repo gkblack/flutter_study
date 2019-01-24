@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/page/home_pager.dart';
-import 'package:flutter_study/page/notice_pager.dart';
-import 'package:flutter_study/page/android_pager.dart';
-import 'package:flutter_study/page/setting_dart.dart';
-import 'package:flutter_study/page/list_pager.dart';
+import 'package:flutter_study/page/main/home_pager.dart';
+import 'package:flutter_study/page/main/notice_pager.dart';
+import 'package:flutter_study/page/main/android_pager.dart';
+import 'package:flutter_study/page/main/setting_pager.dart';
+import 'package:flutter_study/page/main/list_pager.dart';
+import 'package:flutter_study/page/main/image_pager.dart';
+import 'package:flutter_study/page/main/tab_pager.dart';
 
 //底部导航栏
 class BottomNavigationWidget extends StatefulWidget {
@@ -11,7 +13,8 @@ class BottomNavigationWidget extends StatefulWidget {
 }
 
 class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
-  final _BottomNavigationColor = Colors.blue;
+  final _BottomNavigationColor = Colors.grey;
+  final _BottomSelectColor = Colors.blue;
   int _currentIndex = 0;
   List<Widget> list = List();
 
@@ -19,11 +22,13 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   void initState() {
     // TODO: implement initState
     list
-      ..add(homePager())
+      ..add(HomePager())
       ..add(NoticePager())
       ..add(AndroidPager())
       ..add(ListPager())
-      ..add(SettingPager());
+      ..add(SettingPager())
+      ..add(ImagePager())
+      ..add(TabPager());
     super.initState();
   }
 
@@ -39,50 +44,70 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                 Icons.home,
                 color: _BottomNavigationColor,
               ),
+              activeIcon: Icon(Icons.home, color: _BottomSelectColor,),
               title: Text(
                 '首页',
-                style: TextStyle(color: _BottomNavigationColor),
-              )
-          ),
+              )),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.notifications,
                 color: _BottomNavigationColor,
               ),
+              activeIcon: Icon(Icons.home, color: _BottomSelectColor,),
               title: Text(
                 '提示',
-                style: TextStyle(color: _BottomNavigationColor),
-              )
-          ),
+//                style: TextStyle(color: _BottomNavigationColor),
+              )),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.android,
+                Icons.store,
                 color: _BottomNavigationColor,
               ),
+              activeIcon: Icon(Icons.home, color: _BottomSelectColor,),
               title: Text(
                 '安卓',
-                style: TextStyle(color: _BottomNavigationColor),
-              )
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.list,
-              color: _BottomNavigationColor,
-            ),
-            title: Text(
-              '列表',
-              style: TextStyle(color: _BottomNavigationColor),
-            )
-          ),
+//                style: TextStyle(color: _BottomNavigationColor),
+              )),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.settings,
+                Icons.list,
                 color: _BottomNavigationColor,
               ),
+              activeIcon: Icon(Icons.home, color: _BottomSelectColor,),
               title: Text(
-                '设置',
-                style: TextStyle(color: _BottomNavigationColor),
-              )
+                '列表',
+//                style: TextStyle(color: _BottomNavigationColor),
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.adjust,
+                color: _BottomNavigationColor,
+              ),
+              activeIcon: Icon(Icons.home, color: _BottomSelectColor,),
+              title: Text(
+                '混合',
+//                style: TextStyle(color: _BottomNavigationColor),
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.image,
+                color: _BottomNavigationColor,
+              ),
+              activeIcon: Icon(Icons.home, color: _BottomSelectColor,),
+              title: Text(
+                '图片',
+//                style: TextStyle(color: _BottomNavigationColor),
+              )),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.tab,
+              color: _BottomNavigationColor,
+            ),
+            activeIcon: Icon(Icons.home, color: _BottomSelectColor,),
+            title: Text(
+              'Tab',
+//              style: TextStyle(color: _BottomNavigationColor),
+            ),
           ),
         ],
         currentIndex: _currentIndex,
