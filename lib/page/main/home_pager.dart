@@ -15,6 +15,44 @@ class HomePager extends StatefulWidget {
   _homePagerState createState() => new _homePagerState();
 }
 
+class _homeBuilder {
+  static Widget homeDrawer() {
+    return ListView(
+//      padding: const EdgeInsets.only(),
+      children: <Widget>[
+        _drawerHeader(),
+        new ClipRect(
+          child: new ListTile(
+            leading: new CircleAvatar(child: new Text("L"),
+            ),
+            title: new Text("Drawer1"),
+            onTap: () => {},
+          ),
+        )
+      ],
+    );
+  }
+
+  static Widget _drawerHeader() {
+    return new UserAccountsDrawerHeader(
+        accountName: new Text(
+          "Raokii", style: TextStyle(color: Colors.blueGrey),),
+        accountEmail: new Text(
+          "xxx@gmail.com", style: TextStyle(color: Colors.white),),
+        currentAccountPicture: new CircleAvatar(
+          backgroundImage: new AssetImage("images/ry.jpg"),
+        ),
+        onDetailsPressed: (){},
+        otherAccountsPictures: <Widget>[
+          new CircleAvatar(
+            backgroundImage: new AssetImage("images/289ee.jpg"),
+          )
+        ],
+    );
+  }
+}
+
+
 class _homePagerState extends State<HomePager> {
   @override
   Widget build(BuildContext context) {
@@ -24,6 +62,9 @@ class _homePagerState extends State<HomePager> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Row'),
+        ),
+        drawer: new Drawer(
+          child: _homeBuilder.homeDrawer(),
         ),
         body: new ListView(
           children: <Widget>[
@@ -168,7 +209,7 @@ class _homePagerState extends State<HomePager> {
                           context,
                           new MaterialPageRoute(
                               builder: (context) =>
-                                  new SecondAnimationPager()));
+                              new SecondAnimationPager()));
                     }),
                 new RaisedButton(
                     child: Text('双指放大图片'),
