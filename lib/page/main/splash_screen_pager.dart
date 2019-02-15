@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/widget/view/bottom_navigation_widget.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 //void main() => SplashScreenPager();
@@ -13,6 +14,9 @@ class SplashScreenPager extends StatelessWidget{
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+//      localizationsDelegates: [
+//        const Transla
+//      ],
       home: SplashScreen(),
     );
   }
@@ -64,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     return FadeTransition( // 透明度动画组件
         opacity: _animation,
         child: Image.asset(
-          'images/ry.jpg',
+          'images/289fee.jpg',
 //        'https://i.pximg.net/img-original/img/2019/01/08/01/26/29/72552964_p0.png',
           scale: 2.0, // 缩放
           fit: BoxFit.cover, // 充满父容器

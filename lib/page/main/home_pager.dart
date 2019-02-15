@@ -6,6 +6,7 @@ import 'package:flutter_study/page/second_animation_pager.dart';
 import 'package:flutter_study/page/zoom_image_pager.dart';
 import 'package:flutter_study/page/home/guide_pager.dart';
 import 'package:flutter_study/page/home/draggable_pager.dart';
+import 'package:flutter_study/page/home/image_blur_pager.dart';
 
 import 'package:open_file/open_file.dart';
 
@@ -149,9 +150,13 @@ class _homePagerState extends State<HomePager> {
                           builder: (context) => new DraggablePager()));
                 }),
             RaisedButton(
-              child: Text('读取ppt', style: TextStyle(color: Colors.redAccent),),
-              onPressed: (){
-                OpenFile.open("/storage/emulated/0/tencent/MicroMsg/Download/运营升职加薪年终汇报PPT模板.pptx");
+              child: Text(
+                '读取ppt',
+                style: TextStyle(color: Colors.redAccent),
+              ),
+              onPressed: () {
+                OpenFile.open(
+                    "/storage/emulated/0/tencent/MicroMsg/Download/运营升职加薪年终汇报PPT模板.pptx");
               },
             ),
             Row(
@@ -180,6 +185,19 @@ class _homePagerState extends State<HomePager> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => GuidePager()));
+                    }),
+
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                    child: Text('模糊'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ImageBlurPager()));
                     }),
               ],
             )

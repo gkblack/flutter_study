@@ -8,7 +8,7 @@ class SettingPager extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var stack = new Stack(
+    var stack = new Stack( // 类似frameLayout
       alignment: const FractionalOffset(0.5, 0.8),
       children: <Widget>[
         new CircleAvatar(
