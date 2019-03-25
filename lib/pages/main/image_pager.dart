@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/widget/view/banner_view.dart';
+import 'package:flutter_study/view/banner_view.dart';
 
 // 轮播
 

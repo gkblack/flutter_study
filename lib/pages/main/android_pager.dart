@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/page/product_list_pager.dart';
+import 'package:flutter_study/pages/product_list_pager.dart';
 
 
 class AndroidPager extends StatelessWidget {

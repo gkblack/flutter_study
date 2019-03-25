@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:english_words/english_words.dart';
-import 'package:flutter_study/widget/view/bottom_navigation_widget.dart';
-import 'package:flutter_study/page/main/splash_screen_pager.dart';
+import 'package:flutter_study/pages/main/splash_screen_pager.dart';
 import 'package:adhara_socket_io/manager.dart';
 import 'package:adhara_socket_io/adhara_socket_io.dart';
-import 'package:adhara_socket_io/socket.dart';
 
 void main() => runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -32,11 +30,6 @@ class SocketIO extends StatelessWidget{
     // TODO: implement build
     return new Scaffold(
     );
-  }
-
-  void _ioSocket(){
-    SocketIOManager manager = SocketIOManager();
-
   }
 
 }

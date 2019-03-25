@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/page/listview_pager.dart';
-import 'package:flutter_study/page/bezier_pager.dart';
-import 'package:flutter_study/page/springy_slider_pager.dart';
-import 'package:flutter_study/page/second_animation_pager.dart';
-import 'package:flutter_study/page/zoom_image_pager.dart';
-import 'package:flutter_study/page/home/guide_pager.dart';
-import 'package:flutter_study/page/home/draggable_pager.dart';
-import 'package:flutter_study/page/home/image_blur_pager.dart';
+import 'package:flutter_study/pages/listview_pager.dart';
+import 'package:flutter_study/pages/bezier_pager.dart';
+import 'package:flutter_study/pages/springy_slider_pager.dart';
+import 'package:flutter_study/pages/second_animation_pager.dart';
+import 'package:flutter_study/pages/zoom_image_pager.dart';
+import 'package:flutter_study/pages/home/guide_pager.dart';
+import 'package:flutter_study/pages/home/draggable_pager.dart';
+import 'package:flutter_study/pages/home/image_blur_pager.dart';
+import 'package:flutter_study/pages/chat_page.dart';
 
 import 'package:open_file/open_file.dart';
 
@@ -171,7 +172,7 @@ class _homePagerState extends State<HomePager> {
                     new MaterialPageRoute(
                         builder: (context) => new BezierPage()));
               },
-              child: Text('bezier'),
+              child: Text('电量变化'),
             ),
             new RaisedButton(
               onPressed: () {
@@ -198,6 +199,12 @@ class _homePagerState extends State<HomePager> {
               onPressed: () {
                 OpenFile.open(
                     "/storage/emulated/0/tencent/MicroMsg/Download/运营升职加薪年终汇报PPT模板.pptx");
+              },
+            ),
+            RaisedButton(
+              child: Text('chat', style: TextStyle(color: Colors.blue),),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage()));
               },
             ),
             Row(

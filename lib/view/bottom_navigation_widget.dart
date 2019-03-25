@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/page/main/home_pager.dart';
-import 'package:flutter_study/page/main/notice_pager.dart';
-import 'package:flutter_study/page/main/android_pager.dart';
-import 'package:flutter_study/page/main/setting_pager.dart';
-import 'package:flutter_study/page/main/list_pager.dart';
-import 'package:flutter_study/page/main/image_pager.dart';
-import 'package:flutter_study/page/main/tab_pager.dart';
+import 'package:flutter_study/pages/main/home_pager.dart';
+import 'package:flutter_study/pages/main/notice_pager.dart';
+import 'package:flutter_study/pages/main/android_pager.dart';
+import 'package:flutter_study/pages/main/setting_pager.dart';
+import 'package:flutter_study/pages/main/list_pager.dart';
+import 'package:flutter_study/pages/main/image_pager.dart';
+import 'package:flutter_study/pages/main/tab_pager.dart';
 
 //底部导航栏
 class BottomNavigationWidget extends StatefulWidget {
